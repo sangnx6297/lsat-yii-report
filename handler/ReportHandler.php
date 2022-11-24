@@ -61,7 +61,13 @@ class ReportHandler extends \yii\base\BaseObject
 
         $objWriter = IOFactory::createWriter($activeSheet->getParent(), 'Xlsx');
         $basePath = \yii\helpers\Url::to('@rootPath/static/download');
-        $basePath = Utilities::createDirectory([$basePath, date('Y'), date('m'), get_class($object)]);
+        $objectClass = explode("\\",get_class($object));
+
+        if ($basePathTemp = $object->getReportDownloadFolder()) {
+            $basePath = $basePathTemp;
+        } else {
+            $basePath = Utilities::createDirectory([$basePath, date('Y'), date('m'), $objectClass[count($objectClass) - 1]]);
+        }
 
 
         $filePath = $basePath . DIRECTORY_SEPARATOR . $this->getFileName($object) . date('Y_m_d_h_i_s') . '.xlsx';
