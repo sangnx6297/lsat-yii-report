@@ -2,9 +2,8 @@
 
 namespace lcssoft\report\handler;
 
-use Cassandra\Uuid;
-use common\components\Logger;
-use common\models\Utilities;
+use lcssoft\report\helpers\Logger;
+use lcssoft\report\helpers\Utilities;
 use Mpdf\Tag\P;
 use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 use PhpOffice\PhpSpreadsheet\IOFactory;
