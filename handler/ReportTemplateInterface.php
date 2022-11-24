@@ -41,4 +41,9 @@ interface ReportTemplateInterface
      */
     public function getReportLabel():string;
 
+    /**
+     * @return string
+     */
+    public function getReportDownloadFolder():string;
+
 }
